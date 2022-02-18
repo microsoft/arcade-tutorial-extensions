@@ -1,0 +1,29 @@
+{
+    "name": "valentine-special",
+    "version": "0.0.5",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "sprite-scaling": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "docs/check-win-loss.md",
+        "docs/send-valentine-with-arrows.md",
+        "docs/set-win-loss-width.md",
+        "assets.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.8.17",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
