@@ -1,0 +1,28 @@
+{
+    "name": "arcade-forest-fire",
+    "description": "",
+    "version": "0.0.4",
+    "dependencies": {
+        "device": "*",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "hud.ts",
+        "particles.ts",
+        "api.ts",
+        "fire.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.6.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
