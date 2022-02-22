@@ -8,7 +8,6 @@
     },
     "files": [
         "main.ts",
-        "README.md",
         "docs/check-win-loss.md",
         "docs/send-valentine-with-arrows.md",
         "docs/set-win-loss-width.md",

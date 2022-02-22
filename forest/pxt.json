@@ -8,7 +8,6 @@
     },
     "files": [
         "main.ts",
-        "README.md",
         "hud.ts",
         "particles.ts",
         "api.ts",
