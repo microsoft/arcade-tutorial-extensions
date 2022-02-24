@@ -12,7 +12,7 @@ namespace simplified {
     //% velo.defl=-200
     //% help=github:simple-blocks/docs/gravity-jump
     export function gravity_jump(thisSprite: Sprite, velo?: number) {
-        if (!velo) {
+        if (velo == undefined) {
             velo = -200;
         }
         if (thisSprite.vy == 0 || thisSprite.isHittingTile(CollisionDirection.Bottom) || (thisSprite.bottom >= (scene.cameraTop() + 120))) {
