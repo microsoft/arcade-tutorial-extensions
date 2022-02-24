@@ -17,7 +17,7 @@ namespace simplified {
         if (velo == undefined) {
             velo = -200;
         }
-        if (thisSprite.vy == 0 || thisSprite.isHittingTile(CollisionDirection.Bottom) || (thisSprite.bottom >= (scene.cameraTop() + 120))) {
+        if (thisSprite.vy == 0 || thisSprite.isHittingTile(CollisionDirection.Bottom) || (thisSprite.bottom >= (scene.cameraTop() + 120) && (thisSprite.flags & SpriteFlag.StayInScreen))) {
             thisSprite.vy = -Math.abs(velo)
         }
     }
