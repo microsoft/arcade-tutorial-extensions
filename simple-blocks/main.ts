@@ -34,7 +34,12 @@ namespace simplified {
     //% group=Arrays
     //% color="#fa8f08"
     //% blockId=choose_random_from_array
-    //% block="choose one of $choice1=screen_image_picker $choice2=screen_image_picker || $choice3=screen_image_picker $choice4=screen_image_picker $choice5=screen_image_picker"
+    //% block="choose one of $choice1 $choice2 || $choice3 $choice4 $choice5"
+    //% choice1.shadow=screen_image_picker
+    //% choice2.shadow=screen_image_picker
+    //% choice3.shadow=screen_image_picker
+    //% choice4.shadow=screen_image_picker
+    //% choice5.shadow=screen_image_picker
     //% inlineInputMode=inline
     //% help=github:simple-blocks/docs/choose-image
     export function chooseRandomImage(choice1: Image, choice2: Image, choice3?: Image, choice4?: Image, choice5?: Image) {
