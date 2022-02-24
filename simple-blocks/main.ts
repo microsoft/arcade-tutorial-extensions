@@ -8,7 +8,9 @@ namespace simplified {
     //% group=Sprites
     //% color="#3b6fe9"
     //% blockId=gravity_jump
-    //% block="make $thisSprite=variables_get(mySprite) gravity jump || with power $velo"
+    //% block="make $thisSprite gravity jump || with power $velo"
+    //% thisSprite.shadow=variables_get
+    //% thisSprite.defl=mySprite
     //% velo.defl=-200
     //% help=github:simple-blocks/docs/gravity-jump
     export function gravity_jump(thisSprite: Sprite, velo?: number) {
