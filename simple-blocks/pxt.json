@@ -6,7 +6,6 @@
         "device": "*"
     },
     "files": [
-        "main.blocks",
         "main.ts",
         "README.md",
         "docs/gravity-jump.md",
