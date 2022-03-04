@@ -1,3 +1,6 @@
+
+//% color="#d39a02" icon="\uf0e7"
+//% block="Simplified"
 namespace simplified {
 
     /**
@@ -21,6 +24,35 @@ namespace simplified {
             thisSprite.vy = -Math.abs(velo)
         }
     }
+
+
+    /**
+         * Moves center of sprite to a random location
+         * on the 160 x 120 screen with optional
+         * center point and range
+         */
+    //% group=Sprites
+    //% color="#3b6fe9"
+    //% blockId=move_random
+    //% inlineInputMode=inline
+    //% block="move $thisSprite to random position || +/- $range px from x $xloc y $yloc"
+    //% thisSprite.shadow=variables_get
+    //% thisSprite.defl=mySprite
+    //% range.defl=60
+    //% xloc.defl=80
+    //% yloc.defl=60
+    //% expandableArgumentMode="toggle"
+    //% help=github:simple-blocks/docs/move-random
+    export function move_sprite_random(thisSprite: Sprite, range?: number, xloc?: number, yloc?: number) {
+        if (range == undefined) {
+            thisSprite.setPosition(randint(0, 160), randint(0, 120))
+        } else {
+            thisSprite.setPosition(xloc + randint(-range, range), yloc + randint(-range, range))
+        }
+    }
+
+
+
 
 
     /**
