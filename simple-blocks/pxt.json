@@ -9,7 +9,8 @@
         "main.ts",
         "README.md",
         "docs/gravity-jump.md",
-        "docs/choose-image.md"
+        "docs/choose-image.md",
+        "docs/move-random.md"
     ],
     "testFiles": [
         "test.ts"
