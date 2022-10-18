@@ -29,7 +29,7 @@ myBall.setPosition(80, 90)
 let statusbar = statusbars.create(120, 6, StatusBarKind.Health)
 
 carnival.startTimer()
-myBall.setTraceMulti(tracers.Full)
+myBall.setTraceMulti(Tracers.Full)
 myBall.controlBallWithArrowKeys(true)
 myBall.setIter(50)
 

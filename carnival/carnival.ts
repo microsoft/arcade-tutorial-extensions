@@ -12,68 +12,11 @@ namespace SpriteKind {
     export const Moon = SpriteKind.create()
 }
 
-enum winTypes {
-    //% block="win game"
-    Win,
-    //% block="lose game"
-    Lose,
-    //% block="best score"
-    Score,
-    //% block="best time"
-    Timed,
-    //% block="multiplayer"
-    Multi,
-    //% block="custom" blockHidden
-    Custom
-}
 
-enum scoreTypes {
-    //% block="high score"
-    HScore,
-    //% block="low score"
-    LScore,
-    //% block="high time"
-    HTime,
-    //% block="low time"
-    LTime,
-    //% block="none"
-    None
-}
-
-enum speeds {
-    //% block="fast"
-    Fast,
-    //% block="medium"
-    Med,
-    //% block="slow"
-    Slow
-}
-
-enum areas {
-    //% block="top"
-    Top,
-    //% block="middle"
-    Mid,
-    //% block="bottom"
-    Bottom
-}
-
-enum tracers {
-    //% block="full"
-    Full,
-    //% block="partial"
-    Part,
-    //% block="pointer"
-    Pointer,
-    //% block="crosshair"
-    Cross,
-    //% block="off"
-    Off
-}
 
 let textSprite: TextSprite = null
 //let fanfare: effects.BackgroundEffect = undefined;
-//let winStyle="winTypes.Score"
+//let winStyle="WinTypes.Score"
 
 // Get array of player info
 let players: info.PlayerInfo[];
@@ -87,6 +30,61 @@ let players: info.PlayerInfo[];
 //% groups='["Ball", "Timer", "Countdown", "Game", "Scene"]'
 namespace carnival {
 
+    enum WinTypes {
+        //% block="win game"
+        Win,
+        //% block="lose game"
+        Lose,
+        //% block="best score"
+        Score,
+        //% block="best time"
+        Timed,
+        //% block="multiplayer"
+        Multi,
+        //% block="custom" blockHidden
+        Custom
+    }
+
+    enum ScoreTypes {
+        //% block="high score"
+        HScore,
+        //% block="low score"
+        LScore,
+        //% block="high time"
+        HTime,
+        //% block="low time"
+        LTime,
+        //% block="none"
+        None
+    }
+
+
+    enum Areas {
+        //% block="top"
+        Top,
+        //% block="middle"
+        Mid,
+        //% block="bottom"
+        Bottom
+    }
+
+    enum Tracers {
+        //% block="full"
+        Full,
+        //% block="partial"
+        Part,
+        //% block="pointer"
+        Pointer,
+        //% block="crosshair"
+        Cross,
+        //% block="off"
+        Off
+    }
+
+
+
+
+
     /**
     * Adds text to the top, middle, or bottom
     * of screen as defined by games
@@ -97,17 +95,17 @@ namespace carnival {
     //% myLabel.defl="Whack-the-Mole"
     //% myColor.shadow="colorindexpicker"
     //% myColor.defl=4
-    //% myPosition.defl=areas.Bottom
+    //% myPosition.defl=Areas.Bottom
     //% inlineInputMode=inline
     //% help=github:carnival/docs/add_label_to
-    export function add_label_to(myLabel: string, myPosition: areas, myColor?: number) {
+    export function addLabelTo(myLabel: string, myPosition: Areas, myColor?: number) {
         if (myColor == undefined)
             myColor = 4;
 
         textSprite = textsprite.create(myLabel, 0, myColor)
-        if (myPosition == areas.Bottom) textSprite.setPosition(80, 110);
-        if (myPosition == areas.Mid) textSprite.setPosition(80, 50);
-        if (myPosition == areas.Top) textSprite.setPosition(80, 20);
+        if (myPosition == Areas.Bottom) textSprite.setPosition(80, 110);
+        if (myPosition == Areas.Mid) textSprite.setPosition(80, 50);
+        if (myPosition == Areas.Top) textSprite.setPosition(80, 20);
     }
 
 
@@ -165,8 +163,9 @@ namespace carnival {
     //% color="#b70082"
     //% group="Timer"
     //% blockId=show_timer
-    //% block="show timer $on=toggleOnOff"
+    //% block="show timer $on"
     //% inlineInputMode=inline
+    //% on.shadow=toggleOnOff
     //% help=github:carnival/docs/show_timer
     export function showTimer(on: boolean) {
         updateFlag(info.Visibility.Countdown, on);
@@ -265,14 +264,14 @@ namespace carnival {
     //% blockId=start_countdown_game
     //% block="start countdown $myTime (s) and game over $winType || effect $winEffect"
     //% myTime.defl=15
-    //% winType.defl=winTypes.Score
+    //% winType.defl=WinTypes.Score
     //% winEffect.defl=effects.confetti
     //% inlineInputMode=inline
     //% help=github:carnival/docs/start_countdown_game
-    export function startCountdownGame(myTime: number, winType: winTypes, winEffect?: effects.BackgroundEffect) {
+    export function startCountdownGame(myTime: number, winType: WinTypes, winEffect?: effects.BackgroundEffect) {
         if (!winType)
-            winType = winTypes.Win;
-        if (!winEffect && winType != winTypes.Lose) {
+            winType = WinTypes.Win;
+        if (!winEffect && winType != WinTypes.Lose) {
             winEffect = effects.confetti;
         }
         else { winEffect = effects.melt; }
@@ -289,13 +288,9 @@ namespace carnival {
         }
     }
 
-    // Get the last recorded low score
-    function lowScore(): number {
-        return settings.readNumber("low-score");
-    }
 
 
-    function newGameOver(winStyle: winTypes, fanfare: effects.BackgroundEffect, winSound?: music.Melody, scoreType?: scoreTypes, message?: string, customScore?: number) {
+    function newGameOver(winStyle: WinTypes, fanfare: effects.BackgroundEffect, winSound?: music.Melody, scoreType?: ScoreTypes, message?: string, customScore?: number) {
 
         // Prep default variables for different win types
         let winnerNumber = [1];  // Which players have the high scores?
@@ -326,29 +321,29 @@ namespace carnival {
         }
 
         // Initialize the messaging / fanfare based on winStyle
-        if (winStyle == winTypes.Custom) {
-            if (!scoreType) { scoreType = scoreTypes.HScore; }
+        if (winStyle == WinTypes.Custom) {
+            if (!scoreType) { scoreType = ScoreTypes.HScore; }
             if (!message) { message = "Game Over!"; }
             if (!fanfare) { fanfare = effects.confetti; }
 
 
-        } else if (winStyle == winTypes.Win) {
-            scoreType = scoreTypes.HScore;
+        } else if (winStyle == WinTypes.Win) {
+            scoreType = ScoreTypes.HScore;
             message = "You Win!";
             if (!fanfare) { fanfare = effects.confetti; }
 
-        } else if (winStyle == winTypes.Score) {
-            scoreType = scoreTypes.HScore;
+        } else if (winStyle == WinTypes.Score) {
+            scoreType = ScoreTypes.HScore;
             message = "Great Score!";
             if (!fanfare) { fanfare = effects.confetti; }
 
-        } else if (winStyle == winTypes.Timed) {
-            scoreType = scoreTypes.LTime;
+        } else if (winStyle == WinTypes.Timed) {
+            scoreType = ScoreTypes.LTime;
             message = "Great Time!";
             if (!fanfare) { fanfare = effects.confetti; }
 
-        } else if (winStyle == winTypes.Multi) {
-            scoreType = scoreTypes.HScore;
+        } else if (winStyle == WinTypes.Multi) {
+            scoreType = ScoreTypes.HScore;
             if (!fanfare) { fanfare = effects.confetti; }
 
             // Find winner of multiplayer
@@ -377,7 +372,7 @@ namespace carnival {
                 //Construct string for ties
                 message = "Players ";
 
-                for (let i = 0; i < ((winnerNumber.length) - 1); i++) {
+                for (let i = 0; i < winnerNumber.length - 1; i++) {
                     message += winnerNumber[i] + " & ";
                 }
 
@@ -386,7 +381,7 @@ namespace carnival {
             }
 
         } else {
-            if (!scoreType) { scoreType = scoreTypes.None; }
+            if (!scoreType) { scoreType = ScoreTypes.None; }
             if (!message) { message = "Game Over!"; }
             if (!fanfare) { fanfare = effects.melt; }
         }
@@ -397,7 +392,7 @@ namespace carnival {
         }
 
         // Set bestScore and newBest based on score and scoreType
-        if (scoreType == scoreTypes.HScore) {
+        if (scoreType == ScoreTypes.HScore) {
             if (thisBest > bestScore) {
                 newBest = true;
                 bestScore = thisBest;
@@ -405,7 +400,7 @@ namespace carnival {
                 info.saveHighScore();
             }
 
-        } else if (scoreType == scoreTypes.LScore) {
+        } else if (scoreType == ScoreTypes.LScore) {
             bestScore = settings.readNumber("low-score");
             if (bestScore == undefined) { bestScore = Infinity; }
             if (thisBest < bestScore) {
@@ -415,7 +410,7 @@ namespace carnival {
                 saveLowScore(thisBest);
             }
 
-        } else if (scoreType == scoreTypes.HTime) {
+        } else if (scoreType == ScoreTypes.HTime) {
 
             // Set thisBest to timeElapsed if no customScore
             if (!customScore) {
@@ -429,7 +424,7 @@ namespace carnival {
                 info.saveHighScore();
             }
 
-        } else if (scoreType == scoreTypes.LTime) {
+        } else if (scoreType == ScoreTypes.LTime) {
             bestScore = settings.readNumber("low-score");
             if (bestScore == undefined) { bestScore = Infinity; }
 
@@ -489,7 +484,7 @@ namespace carnival {
         return Math.round(thisNum * x) / x;
     }
 
-    function init(winStyle: winTypes, fanfare: effects.BackgroundEffect) {
+    function init(winStyle: WinTypes, fanfare: effects.BackgroundEffect) {
         if (countdownInitialized) return;
         countdownInitialized = true;
 
@@ -497,9 +492,9 @@ namespace carnival {
 
             //Handling manually to include number of seconds passed
             /*
-            if (winStyle == winTypes.Win) {
+            if (winStyle == WinTypes.Win) {
                 game.over(true, fanfare)
-            } else */ if (winStyle == winTypes.Lose) {
+            } else */ if (winStyle == WinTypes.Lose) {
                 game.over(false, fanfare)
             } else {
                 newGameOver(winStyle, fanfare);
@@ -596,19 +591,19 @@ namespace carnival {
     //% color="#b70082"
     //% group="Game"
     //% blockId=on_game_over_expanded
-    //% block="game over $winStyle || add effect $winEffect"
-    //% winType.defl=winTypes.Win
+    //% block="game over $winStyle || with effect $winEffect"
+    //% winType.defl=WinTypes.Win
     //% winEffect.defl=effects.confetti
     //% inlineInputMode=inline
     //% help=github:carnival/docs/on_game_over_expanded
-    export function onGameOverExpanded(winStyle: winTypes, winEffect?: effects.BackgroundEffect) {
+    export function onGameOverExpanded(winStyle: WinTypes, winEffect?: effects.BackgroundEffect) {
 
         if (winEffect == undefined) {
-            if (winStyle == winTypes.Lose) { winEffect = effects.melt; }
+            if (winStyle == WinTypes.Lose) { winEffect = effects.melt; }
             else { winEffect = effects.confetti; }
         }
 
-        if (winStyle == winTypes.Lose) {
+        if (winStyle == WinTypes.Lose) {
             game.over(false, winEffect)
         } else {
             newGameOver(winStyle, winEffect);
@@ -621,20 +616,20 @@ namespace carnival {
     //% color="#b70082"
     //% group="Game"
     //% blockId=on_game_over_custom_expanded
-    //% block="game over $message || with $winEffect and $gameSound send score $score judge $scoring"
+    //% block="game over $message || with $winEffect and $gameSound judged as $scoring using score $score"
     //% message.defl="Great Job!"
-    //% scoring.defl=scoreTypes.None
+    //% scoring.defl=ScoreTypes.None
     //% winEffect.defl=effects.confetti
     //% gameSound.defl=music.powerUp
     //% inlineInputMode=inline
     //% help=github:carnival/docs/on_game_over_custom_expanded
-    export function customGameOverExpanded(message: string, winEffect?: effects.BackgroundEffect, gameSound?: music.Melody, scoring?: scoreTypes, score?: number) {
+    export function customGameOverExpanded(message: string, winEffect?: effects.BackgroundEffect, gameSound?: music.Melody, scoring?: ScoreTypes, score?: number) {
         if (!winEffect) { winEffect = effects.confetti; }
-        if (!scoring) { scoring = scoreTypes.HScore; }
+        if (!scoring) { scoring = ScoreTypes.HScore; }
         if (score == undefined) { info.score(); }
         if (!gameSound) { gameSound = music.powerUp; }
         game.setGameOverSound(true, gameSound);
-        newGameOver(winTypes.Custom, winEffect, gameSound, scoring, message, score);
+        newGameOver(WinTypes.Custom, winEffect, gameSound, scoring, message, score);
     }
 
 
@@ -649,13 +644,15 @@ namespace carnival {
      * @param x optional initial x position, eg: 10
      * @param y optional initial y position, eg: 110
      */
-    //% blockId=throw_create block="ball $img=screen_image_picker of kind $kind=spritekind || at x $x y $y"
+    //% blockId=throw_create block="ball $img of kind $kind || at x $x y $y"
+    //% weight=100
     //% color="#b70082"
     //% group="Ball"
     //% expandableArgumentMode=toggle
     //% inlineInputMode=inline
     //% blockSetVariable=myBall
-    //% weight=100
+    //% img.shadow="screen_image_picker"
+    //% kind.shadow="spritekind"
     //% help=github:carnival/docs/throw_create
     export function create(img: Image,
         kind: number,
@@ -673,9 +670,10 @@ namespace carnival {
     //% group="Ball"
     //% color="#b70082"
     //% weight=99
-    //% blockId=spritescreateprojectileballfromparent block="ball projectile $img=screen_image_picker based on $parentBall=variables_get(myBall) || of kind $kind=spritekind"
+    //% blockId=spritescreateprojectileballfromparent block="ball projectile $img based on $parentBall=variables_get(myBall) || of kind $kind=spritekind"
     //& kind.defl=1
     //% blockSetVariable=myBall
+    //% img.shadow="screen_image_picker"
     //% inlineInputMode=inline
     //% help=github:carnival/docs/create_projectile_ball
     export function createProjectileBallFromSprite(img: Image, parentBall: Ball, kind?: number): Ball {
@@ -879,24 +877,24 @@ class Ball extends sprites.ExtendableSprite {
     //% weight=80
     //% color="#b70082"
     //% group="Ball"
-    //% traceWay.defl="tracers.Full"
+    //% traceWay.defl="Tracers.Full"
     //% this.defl=myBall
     //% help=github:carnival/docs/set_trace_multi
-    public setTraceMulti(traceWay: tracers): void {
+    public setTraceMulti(traceWay: Tracers): void {
 
-        if (traceWay == tracers.Full) {
+        if (traceWay == Tracers.Full) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = 3;
             this.trace = true;
-        } else if (traceWay == tracers.Part) {
+        } else if (traceWay == Tracers.Part) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = .3;
             this.trace = true;
-        } else if (traceWay == tracers.Pointer) {
+        } else if (traceWay == Tracers.Pointer) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = .2;
             this.trace = true;
-        } else if (traceWay == tracers.Cross) {
+        } else if (traceWay == Tracers.Cross) {
             this.trace = false;
             this.moon.setFlag(SpriteFlag.Invisible, false);
         } else {
@@ -911,7 +909,7 @@ class Ball extends sprites.ExtendableSprite {
      * ball in direction ball will travel
      */
 
-    public update_crosshair(dist?: number) {
+    public updateCrosshair(dist?: number) {
         if (dist == undefined) { dist = 3; }
         spriteutils.placeAngleFrom(
             this.moon,
@@ -976,8 +974,9 @@ class Ball extends sprites.ExtendableSprite {
     //% color="#b70082"
     //% weight=80
     //% group="Ball"
-    //% blockId=control_ball_keys block="control $this with arrow keys || $on=toggleOnOff"
+    //% blockId=control_ball_keys block="control $this with arrow keys || $on"
     //% this.defl=myBall
+    //% on.shadow=toggleOnOff
     //% inlineInputMode=inline
     //% help=github:carnival/docs/control_ball_keys
     public controlBallWithArrowKeys(on: boolean = true): void {
@@ -1010,7 +1009,7 @@ class Ball extends sprites.ExtendableSprite {
         game.onUpdate(() => {
             status.value = minNum + Math.abs(Math.sin(game.runtime() / (90000 * (1 / thisSpeed))) * (maxNum - minNum))
             this.pow = status.value;
-            this.update_crosshair();
+            this.updateCrosshair();
         })
     }
 

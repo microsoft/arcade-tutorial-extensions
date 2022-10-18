@@ -22,7 +22,7 @@ In this example, we add a custom game over screen based on the random number tha
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     if (vote == 2) {
 		//@highlight
-        carnival.customGameOverExpanded("P2 wins with " + convertToText(p2_attempts) + " attempts", effects.confetti, music.powerUp, scoreTypes.LScore, p2_attempts)
+        carnival.customGameOverExpanded("P2 wins with " + convertToText(p2_attempts) + " attempts", effects.confetti, music.powerUp, ScoreTypes.LScore, p2_attempts)
     } else {
         p2_attempts += 1
     }
@@ -30,7 +30,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     if (vote == 1) {
-        carnival.customGameOverExpanded("P1 wins with " + convertToText(p1_attempts) + " attempts", effects.confetti, music.powerUp, scoreTypes.LScore, p1_attempts)
+        carnival.customGameOverExpanded("P1 wins with " + convertToText(p1_attempts) + " attempts", effects.confetti, music.powerUp, ScoreTypes.LScore, p1_attempts)
     } else {
         p1_attempts += 1
     }

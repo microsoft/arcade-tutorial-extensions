@@ -3,7 +3,7 @@
 Adds a short text label in one of three pre-determined locations: top, "middle", or bottom.
 
 ```sig
-add_label_to(myLabel, myPosition, myColor)
+addLabelTo(myLabel, myPosition, myColor)
 ```
 
 ## Parameters
@@ -23,8 +23,8 @@ scene.setBackgroundImage(assets.image`grid`)
 mySprite = sprites.create(assets.image`mole`, SpriteKind.Enemy)
 myHammer = sprites.create(assets.image`hammer`, SpriteKind.Player)
 controller.move_only_onscreen_with_arrows(myHammer, speeds.Fast)
-info.startCountdownGame(15, winTypes.Score, effects.confetti)
-scene.add_label_to("Whack-em-Mole", areas.Bottom)
+info.startCountdownGame(15, WinTypes.Score, effects.confetti)
+scene.addLabelTo("Whack-em-Mole", Areas.Bottom)
 
 ```
 

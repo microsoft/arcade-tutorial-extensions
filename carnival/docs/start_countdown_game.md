@@ -26,7 +26,7 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 })
 
 //@highlight
-carnival.startCountdownGame(15, winTypes.Multi)
+carnival.startCountdownGame(15, WinTypes.Multi)
 
 
 ```

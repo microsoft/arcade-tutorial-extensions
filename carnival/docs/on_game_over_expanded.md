@@ -22,7 +22,7 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 })
 info.onCountdownEnd(function () {
 	//@highlight
-    carnival.onGameOverExpanded(winTypes.Multi)
+    carnival.onGameOverExpanded(WinTypes.Multi)
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     info.player1.changeScoreBy(1)

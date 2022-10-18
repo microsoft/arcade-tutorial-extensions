@@ -33,7 +33,7 @@ statusbar.setPosition(80, 113)
 carnival.startTimer()
 myBall.controlBallWithArrowKeys(true)
 //@highlight
-myBall.setTraceMulti(tracers.Cross)
+myBall.setTraceMulti(Tracers.Cross)
 myBall.variablePower(statusbar, 30, 50, 100)
 
 
