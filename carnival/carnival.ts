@@ -13,22 +13,22 @@ namespace SpriteKind {
 }
 
 
-
-let textSprite: TextSprite = null
-//let fanfare: effects.BackgroundEffect = undefined;
-//let winStyle="WinTypes.Score"
-
-// Get array of player info
-let players: info.PlayerInfo[];
-
-
-
 /**
 * An extension full of carnival goodness
 */
 //% weight=100 color=#b70082 icon="\uf54e"
 //% groups='["Ball", "Timer", "Countdown", "Game", "Scene"]'
 namespace carnival {
+
+
+let textSprite: TextSprite = null
+//let fanfare: effects.BackgroundEffect = undefined; // <-- I don't think this is needed anymore
+//let winStyle="WinTypes.Score"  // <-- Pretty sure this isn't needed anymore
+
+// Get array of player info
+// let players: info.PlayerInfo[]; // <-- I don't think I use this
+
+
 
     enum WinTypes {
         //% block="win game"
@@ -166,6 +166,7 @@ namespace carnival {
     //% block="show timer $on"
     //% inlineInputMode=inline
     //% on.shadow=toggleOnOff
+    //% on.defl=true
     //% help=github:carnival/docs/show_timer
     export function showTimer(on: boolean) {
         updateFlag(info.Visibility.Countdown, on);
@@ -670,10 +671,13 @@ namespace carnival {
     //% group="Ball"
     //% color="#b70082"
     //% weight=99
-    //% blockId=spritescreateprojectileballfromparent block="ball projectile $img based on $parentBall=variables_get(myBall) || of kind $kind=spritekind"
+    //% blockId=spritescreateprojectileballfromparent block="ball projectile $img based on $parentBall || of kind $kind"
     //& kind.defl=1
     //% blockSetVariable=myBall
-    //% img.shadow="screen_image_picker"
+    //% parentBall.shadow=variables_get
+    //% parentBall.defl=myBall
+    //% img.shadow=screen_image_picker
+    //% kind.shadow=spriteKind
     //% inlineInputMode=inline
     //% help=github:carnival/docs/create_projectile_ball
     export function createProjectileBallFromSprite(img: Image, parentBall: Ball, kind?: number): Ball {
@@ -692,8 +696,12 @@ namespace carnival {
      */
     //% group="Ball"
     //% color="#b70082"
-    //% blockId=spritescreateprojectileball block="ball $img=screen_image_picker vx $vx vy $vy of kind $kind=spritekind||based on $parentBall=variables_get(myBall)"
+    //% blockId=spritescreateprojectileball block="ball $img vx $vx vy $vy of kind $kind ||based on $parentBall"
     //% blockSetVariable=myBall
+    //% img.shadow=screen_image_picker
+    //% kind.shadow=spriteKind
+    //% parentBall.shadow=variables_get
+    //% parentBall.defl=myBall
     //% inlineInputMode=inline
     //% expandableArgumentMode=toggle
     //% help=github:carnival/docs/spritescreateprojectileball
@@ -993,10 +1001,12 @@ class Ball extends sprites.ExtendableSprite {
     /**
   * Changes power from min to max with sin-like cycle
   */
-    //% blockId=variable_power block="vary $this power using $status=variables_get(statusbar) from $minNum \\% to $maxNum \\% || speed $thisSpeed"
+    //% blockId=variable_power block="vary $this power using $status from $minNum \\% to $maxNum \\% || speed $thisSpeed"
     //% weight=2
     //% color="#b70082"
     //% group="Ball"
+    //% status.shadow=variables_get
+    //% status.defl=statusbar
     //% minNum.defl=30
     //% maxNum.defl=60
     //% this.defl=myBall
