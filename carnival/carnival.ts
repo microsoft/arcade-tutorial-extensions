@@ -30,7 +30,7 @@ let textSprite: TextSprite = null
 
 
 
-    enum WinTypes {
+ export enum WinTypes {
         //% block="win game"
         Win,
         //% block="lose game"
@@ -45,7 +45,7 @@ let textSprite: TextSprite = null
         Custom
     }
 
-    enum ScoreTypes {
+    export enum ScoreTypes {
         //% block="high score"
         HScore,
         //% block="low score"
@@ -59,7 +59,7 @@ let textSprite: TextSprite = null
     }
 
 
-    enum Areas {
+    export enum Areas {
         //% block="top"
         Top,
         //% block="middle"
@@ -68,7 +68,7 @@ let textSprite: TextSprite = null
         Bottom
     }
 
-    enum Tracers {
+    export enum Tracers {
         //% block="full"
         Full,
         //% block="partial"
