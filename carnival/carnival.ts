@@ -16,7 +16,7 @@ namespace SpriteKind {
 /**
 * An extension full of carnival goodness
 */
-//% weight=100 color=#b70082 icon="\uf54e"
+//% weight=100 color=#b70082 icon="\uf3ff"
 //% groups='["Ball", "Timer", "Countdown", "Game", "Scene"]'
 namespace carnival {
 
@@ -653,7 +653,7 @@ let textSprite: TextSprite = null
     //% inlineInputMode=inline
     //% blockSetVariable=myBall
     //% img.shadow="screen_image_picker"
-    //% kind.shadow="spritekind"
+    //% kind.shadow=spritekind
     //% help=github:carnival/docs/throw_create
     export function create(img: Image,
         kind: number,
@@ -677,7 +677,7 @@ let textSprite: TextSprite = null
     //% parentBall.shadow=variables_get
     //% parentBall.defl=myBall
     //% img.shadow=screen_image_picker
-    //% kind.shadow=spriteKind
+    //% kind.shadow=spritekind
     //% inlineInputMode=inline
     //% help=github:carnival/docs/create_projectile_ball
     export function createProjectileBallFromSprite(img: Image, parentBall: Ball, kind?: number): Ball {
@@ -699,7 +699,7 @@ let textSprite: TextSprite = null
     //% blockId=spritescreateprojectileball block="ball $img vx $vx vy $vy of kind $kind ||based on $parentBall"
     //% blockSetVariable=myBall
     //% img.shadow=screen_image_picker
-    //% kind.shadow=spriteKind
+    //% kind.shadow=spritekind
     //% parentBall.shadow=variables_get
     //% parentBall.defl=myBall
     //% inlineInputMode=inline
@@ -885,24 +885,24 @@ class Ball extends sprites.ExtendableSprite {
     //% weight=80
     //% color="#b70082"
     //% group="Ball"
-    //% traceWay.defl="Tracers.Full"
+    //% traceWay.defl="carnival.Tracers.Full"
     //% this.defl=myBall
     //% help=github:carnival/docs/set_trace_multi
-    public setTraceMulti(traceWay: Tracers): void {
+    public setTraceMulti(traceWay: carnival.Tracers): void {
 
-        if (traceWay == Tracers.Full) {
+        if (traceWay == carnival.Tracers.Full) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = 3;
             this.trace = true;
-        } else if (traceWay == Tracers.Part) {
+        } else if (traceWay == carnival.Tracers.Part) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = .3;
             this.trace = true;
-        } else if (traceWay == Tracers.Pointer) {
+        } else if (traceWay == carnival.Tracers.Pointer) {
             this.moon.setFlag(SpriteFlag.Invisible, true);
             this.iter = .2;
             this.trace = true;
-        } else if (traceWay == Tracers.Cross) {
+        } else if (traceWay == carnival.Tracers.Cross) {
             this.trace = false;
             this.moon.setFlag(SpriteFlag.Invisible, false);
         } else {
