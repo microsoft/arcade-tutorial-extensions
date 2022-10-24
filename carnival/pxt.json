@@ -11,6 +11,7 @@
     "files": [
         "README.md",
         "assets.json",
+        "icon.png",
         "carnival.ts",
         "docs/add_label_to.md",
         "docs/on_game_over_expanded.md",
