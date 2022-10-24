@@ -4,14 +4,12 @@ let throwBall: Ball = null
 let myBall: Ball = null
 
 function test1(){
-scene.setBackgroundImage(assets.image`wildWest`)
-myBall = carnival.create(assets.image`ball-yellow`, SpriteKind.Player)
+myBall = carnival.create(img`.`, SpriteKind.Player)
 myBall.setPosition(80, 90)
 let statusbar = statusbars.create(120, 6, StatusBarKind.Health)
 statusbar.setColor(5, 10)
 statusbar.setBarBorder(1, 1)
 statusbar.setPosition(80, 113)
-let myBooth = sprites.create(assets.image`booth`, SpriteKind.Booth)
 myBall.controlBallWithArrowKeys(true)
 myBall.setIter(10)
 myBall.setTraceMulti(carnival.Tracers.Cross)
@@ -22,7 +20,7 @@ carnival.startTimer()
 
 
 function test2(){
-	throwBall = carnival.createProjectileBallFromSprite(assets.image`ball-blue`, myBall)
+	throwBall = carnival.createProjectileBallFromSprite(img`.`, myBall)
     info.changeScoreBy(1)
     music.baDing.play()
 }
