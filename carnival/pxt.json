@@ -1,6 +1,6 @@
 {
     "name": "carnival",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -12,7 +12,6 @@
         "README.md",
         "assets.json",
         "icon.png",
-        "images.g.jres",
         "carnival.ts",
         "docs/add_label_to.md",
         "docs/on_game_over_expanded.md",

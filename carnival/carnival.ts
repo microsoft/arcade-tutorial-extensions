@@ -829,11 +829,11 @@ class Ball extends sprites.ExtendableSprite {
     public moon: Sprite;
 
 
-    public constructor(img: Image,
+    public constructor(im: Image,
         kind: number,
         x: number,
         y: number) {
-        super(img);
+        super(im);
         this.setKind(kind);
         this.x = x;
         this.y = y;
@@ -845,7 +845,17 @@ class Ball extends sprites.ExtendableSprite {
         this.powerRate = 3;
         this.iter = .4;
         this.wind = 0;
-        this.moon = sprites.create(assets.image`crosshair`, SpriteKind.Moon);
+        this.moon = sprites.create(img`
+            . 1 . . . . . 1 .
+            1 2 1 . . . 1 2 1
+            . 1 2 1 . 1 2 1 .
+            . . 1 2 1 2 1 . .
+            . . . 1 . 1 . . .
+            . . 1 2 1 2 1 . .
+            . 1 2 1 . 1 2 1 .
+            1 2 1 . . . 1 2 1
+            . 1 . . . . . 1 .
+            `, SpriteKind.Moon);
         this.moon.setFlag(SpriteFlag.Invisible, true);
 
         this.renderable = scene.createRenderable(-0.5, (target, camera) => {

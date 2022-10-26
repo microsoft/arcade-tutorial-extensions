@@ -1,6 +1,6 @@
 {
     "name": "arcade-tutorial-extensions",
-    "version": "0.0.0",
+    "version": "0.0.4",
     "description": "",
     "dependencies": {
         "device": "*"
