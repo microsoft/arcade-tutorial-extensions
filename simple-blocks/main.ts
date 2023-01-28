@@ -226,6 +226,7 @@ namespace simplified {
     //% playerNum.defl=mp.PlayerNumber.Two
     //% thisScore.defl=1
     //% help=github:simple-blocks/docs/check-escape
+
     export function checkMoleEscape(playerNum?: mp.Player, thisScore?: number) {
         //if (playerNum === undefined) { playerNum = mp.PlayerNumber.Two }
         if (thisScore === undefined) { thisScore = 1; }
