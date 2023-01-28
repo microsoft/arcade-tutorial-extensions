@@ -30,6 +30,7 @@ namespace simplified {
     //% thisSprite.shadow=variables_get
     //% mySpeed.defl=Speeds.Fast
     //% inlineInputMode=inline
+    //% help=github:simple-blocks/docs/move-only-onscreen
     export function moveOnlyOnscreenWithArrows(thisSprite: Sprite, mySpeed: Speeds) {
         thisSprite.setStayInScreen(true)
         if (mySpeed == Speeds.Fast) {
@@ -53,6 +54,7 @@ namespace simplified {
     //% thisSprite.defl=mySprite
     //% thisSprite.shadow=variables_get
     //% inlineInputMode=inline
+    //% help=github:simple-blocks/docs/move-on-grid
     export function moveToRandomHoleOnGrid(thisSprite: Sprite) {
         thisSprite.setPosition(simplified.chooseRandomNumber(28, 80, 130), simplified.chooseRandomNumber(21, 53, 85))
         simplified.still = 0;
@@ -162,6 +164,7 @@ namespace simplified {
     //% choice2.defl=80
     //% choice3.defl=130
     //% inlineInputMode=inline
+    //% help=github:simple-blocks/docs/choose-number
     export function chooseRandomNumber(choice1: number, choice2: number, choice3: number, choice4?: number, choice5?: number) {
         let myList = [choice1, choice2];
         if (choice3) myList.push(choice3);
@@ -189,6 +192,7 @@ namespace simplified {
     //% choice2.defl=abc
     //% choice3.defl=abc
     //% inlineInputMode=inline
+    //% help=github:simple-blocks/docs/choose-text
     export function chooseRandomText(choice1: string, choice2: string, choice3: string, choice4?: string, choice5?: string) {
         let myList = [choice1, choice2];
         if (choice3) myList.push(choice3);
@@ -206,6 +210,7 @@ namespace simplified {
     //% group=Bundle
     //% block="create player"
     //% handlerStatement=1
+    //% help=github:simple-blocks/docs/wrapper
     export function wrap(handler: () => void) {
         handler();
     }
@@ -220,6 +225,8 @@ namespace simplified {
     //% playerNum.shadow=mp_playerSelector
     //% playerNum.defl=mp.PlayerNumber.Two
     //% thisScore.defl=1
+    //% help=github:simple-blocks/docs/check-escape
+
     export function checkMoleEscape(playerNum?: mp.Player, thisScore?: number) {
         //if (playerNum === undefined) { playerNum = mp.PlayerNumber.Two }
         if (thisScore === undefined) { thisScore = 1; }

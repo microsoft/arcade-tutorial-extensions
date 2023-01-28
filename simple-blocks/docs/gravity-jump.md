@@ -3,7 +3,7 @@
 Only lets sprite jump when it is in a non-jumping state.
 
 ```sig
-sprite.gravity_jump(mySprite, -200)
+simplified.gravity_jump(mySprite, -200)
 ```
 
 ## Example
