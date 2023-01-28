@@ -3,7 +3,7 @@
 Moves chosen sprite to a random location on the screen
 
 ```sig
-simple.move_sprite_random(mySprite, 60, 80, 60)
+simplified.move_sprite_random(mySprite, 60, 80, 60)
 ```
 
 ## Example
