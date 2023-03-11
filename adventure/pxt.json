@@ -11,11 +11,11 @@
         "README.md",
         "assets.json",
         "adventure.ts",
-        "adv_add_image_to_text_log.md",
-        "adv_add_to_text_log.md",
-        "change_score_override.md",
-        "change_text_log_colors.md",
-        "set_score_override.md"
+        "docs/adv_add_image_to_text_log.md",
+        "docs/adv_add_to_text_log.md",
+        "docs/change_score_override.md",
+        "docs/change_text_log_colors.md",
+        "docs/set_score_override.md"
 
     ],
     "testFiles": [

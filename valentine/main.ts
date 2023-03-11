@@ -29,7 +29,7 @@ namespace valentine {
     //% valImage.shadow=screen_image_picker
     //% arrowImage.shadow=screen_image_picker
     //% arrowNum.defl=3
-    //% help=github:valentine-special/docs/send-valentine-with-arrows
+    //% help=github:docs/send-valentine-with-arrows
     export function send_valentine(valImage: Image, arrowNum: number, arrowImage: Image) {
         if (arrowNum > 100) {
             redheart = sprites.createProjectileFromSide(valImage, randint(-20, 20), randint(30, 60))
@@ -60,7 +60,7 @@ namespace valentine {
     //% block="win at width $winsize | lose at width $losesize"
     //% winsize.defl=120
     //% losesize.defl=6
-    //% help=github:valentine-special/docs/set-win-loss-width
+    //% help=github:docs/set-win-loss-width
     export function set_win_lose_size(winsize: number, losesize: number) {
         win_size = winsize
         lose_size = losesize
@@ -71,7 +71,7 @@ namespace valentine {
       * loss condition is met
       */
     //% block="check for win or loss"
-    //% help=github:valentine-special/docs/check-win-loss
+    //% help=github:docs/check-win-loss
     export function check_win_or_lose() {
         for (let value of sprites.allOfKind(SpriteKind.Player)) {
             if (value.width >= win_size) {
