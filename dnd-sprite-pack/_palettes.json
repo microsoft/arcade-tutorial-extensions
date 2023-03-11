@@ -1,0 +1,28 @@
+{
+    "nextPaletteID": 1,
+    "palettes": {
+        "custom0": {
+            "id": "custom0",
+            "name": "Honor",
+            "colors": [
+                "#000000",
+                "#FFFFFF",
+                "#BE2633",
+                "#2F484E",
+                "#EB8931",
+                "#F7E26B",
+                "#44891A",
+                "#A3CE27",
+                "#31A2F2",
+                "#B2DCEF",
+                "#005784",
+                "#9D9D9D",
+                "#1B2632",
+                "#A46422",
+                "#493C2B",
+                "#000000"
+            ],
+            "custom": true
+        }
+    }
+}
