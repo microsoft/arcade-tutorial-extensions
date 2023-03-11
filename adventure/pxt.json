@@ -1,0 +1,36 @@
+{
+    "name": "adventure",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "adventure.ts",
+        "adv_add_image_to_text_log.md",
+        "adv_add_to_text_log.md",
+        "change_score_override.md",
+        "change_text_log_colors.md",
+        "set_score_override.md"
+
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.25",
+        "tag": "v1.12.25",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/e2750e18d567167d5fc4f7c49e2a64cc55da9d18",
+        "target": "1.12.25",
+        "pxt": "8.5.36",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
