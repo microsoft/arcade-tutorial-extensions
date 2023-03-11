@@ -1,0 +1,39 @@
+{
+    "name": "dnd-sprite-pack",
+    "version": "0.2.1",
+    "description": "An asset pack for MakeCode Arcade",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "images.g.jres"
+    ],
+    "targetVersions": {
+        "target": "1.12.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj",
+    "palette": [
+        "#000000",
+        "#FFFFFF",
+        "#BE2633",
+        "#2F484E",
+        "#EB8931",
+        "#F7E26B",
+        "#44891A",
+        "#A3CE27",
+        "#31A2F2",
+        "#B2DCEF",
+        "#005784",
+        "#9D9D9D",
+        "#1B2632",
+        "#A46422",
+        "#493C2B",
+        "#000000"
+    ]
+}
