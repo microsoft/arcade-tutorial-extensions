@@ -1,0 +1,29 @@
+{
+    "name": "Arrow-Assets",
+    "version": "0.0.2",
+    "description": "",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "assets.json",
+        "images.g.jres"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.17",
+        "tag": "v1.12.17",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/09d3f1e2b4272e6bee89fadd9a64254de01c8861",
+        "target": "1.12.17",
+        "pxt": "8.5.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
