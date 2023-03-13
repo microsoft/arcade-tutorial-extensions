@@ -1,0 +1,28 @@
+{
+    "name": "mole-images",
+    "version": "0.0.2",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "simple-blocks": "github:microsoft/arcade-tutorial-extensions/simple-blocks#v0.0.7"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres"
+    ],
+    "testFiles": [
+        "test.ts",
+        "images.g.ts"
+    ],
+    "targetVersions": {
+        "target": "1.12.17",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
