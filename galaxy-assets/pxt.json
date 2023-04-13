@@ -1,0 +1,44 @@
+{
+    "name": "Galaxy - Assets Only",
+    "description": "",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "assets.json",
+        "images.g.jres"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.26",
+        "tag": "v1.12.26",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/5913cfba52b36d2a23773b528b9c996b007c0e3f",
+        "target": "1.13.13",
+        "pxt": "8.5.38",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj",
+    "palette": [
+        "#000000",
+        "#FFFFFF",
+        "#FF92BA",
+        "#993648",
+        "#FF8135",
+        "#FFF76B",
+        "#00BFFD",
+        "#FFB5AF",
+        "#003FAD",
+        "#87F2FF",
+        "#8E2EC4",
+        "#A4839F",
+        "#5C406c",
+        "#C0C0C0",
+        "#180A42",
+        "#001E57"
+    ]
+}
