@@ -11,7 +11,6 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "images.g.jres",
-        "images.g.ts",
         "pxt.json"
     ],
     "testFiles": [
