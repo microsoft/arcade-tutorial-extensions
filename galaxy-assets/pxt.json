@@ -5,8 +5,14 @@
         "device": "*"
     },
     "files": [
+        "main.blocks",
+        "main.ts",
         "assets.json",
-        "images.g.jres"
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "pxt.json"
     ],
     "testFiles": [
         "test.ts"
