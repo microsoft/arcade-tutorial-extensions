@@ -57,9 +57,8 @@ b 5 5 5 5 1 1 5 5 b
 In this example, the sprite will throw either a flower, a star, or a heart when the A button is pressed...chosen at random.
 
 ```blocks
-let mySprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(sprites.createProjectileFromSprite(arrays.chooseRandomImage(img`
+    let projectile = sprites.createProjectileFromSprite(sprites.createProjectileFromSprite(arrays.chooseRandomImage(img`
 img`
 ....................
 .......d.d.d........
